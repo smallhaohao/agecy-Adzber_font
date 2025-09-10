@@ -17,7 +17,7 @@ export const useContactSubmit = () => {
     setSubmitResult(null);
 
     try {
-      const url = `${process.env.AIPA_API_DOMAIN}/api/contacts`;
+      const url = `/api/contacts`;
       const response = await fetch(url, {
         method: 'POST',
         headers: {

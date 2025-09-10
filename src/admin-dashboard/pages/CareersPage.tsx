@@ -34,6 +34,7 @@ const CareersPage: React.FC = () => {
   const [statusFilter, setStatusFilter] = useState('');
   const [regionFilter, setRegionFilter] = useState('');
   const [selectedApplication, setSelectedApplication] = useState<CareerApplication | null>(null);
+  const [updateLoading, setUpdateLoading] = useState(false);
 
   useEffect(() => {
     fetchApplications();
@@ -55,7 +56,7 @@ const CareersPage: React.FC = () => {
         params.append('region', regionFilter);
       }
 
-      const response = await fetch(`${process.env.AIPA_API_DOMAIN}/api/admin/career-applications?${params}`, {
+      const response = await fetch(`/api/admin/career-applications?${params}`, {
         headers: {
           'Authorization': token || '',
         },
@@ -93,6 +94,72 @@ const CareersPage: React.FC = () => {
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleString('zh-CN');
+  };
+
+  const updateApplicationStatus = async (id: string, newStatus: string) => {
+    setUpdateLoading(true);
+    try {
+      const response = await fetch(`/api/admin/career-applications/${id}/status`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': token || '',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status: newStatus }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        // 刷新列表
+        await fetchApplications();
+        // 更新选中的申请状态
+        if (selectedApplication && selectedApplication.id === id) {
+          setSelectedApplication({
+            ...selectedApplication,
+            status: newStatus
+          });
+        }
+        alert('状态更新成功');
+      } else {
+        alert(result.message || '状态更新失败');
+      }
+    } catch (error) {
+      console.error('Failed to update status:', error);
+      alert('网络错误，请重试');
+    } finally {
+      setUpdateLoading(false);
+    }
+  };
+
+  const deleteApplication = async (id: string) => {
+    if (!confirm('确定要删除这个申请记录吗？')) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/admin/career-applications/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': token || '',
+        },
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        // 刷新列表
+        await fetchApplications();
+        // 关闭详情弹窗
+        if (selectedApplication && selectedApplication.id === id) {
+          setSelectedApplication(null);
+        }
+        alert('删除成功');
+      } else {
+        alert(result.message || '删除失败');
+      }
+    } catch (error) {
+      console.error('Failed to delete application:', error);
+      alert('网络错误，请重试');
+    }
   };
 
   if (loading && !data) {

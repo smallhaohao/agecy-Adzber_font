@@ -24,7 +24,7 @@ const DashboardPage: React.FC = () => {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch(`${process.env.AIPA_API_DOMAIN}/api/admin/dashboard/stats`, {
+      const response = await fetch(`/api/admin/dashboard/stats`, {
         headers: {
           'Authorization': token || '',
         },

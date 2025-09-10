@@ -9,18 +9,22 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Careers from './components/Careers';
+import AdminApp from './admin-dashboard/App';
 
 const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<'home' | 'privacy' | 'careers'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'privacy' | 'careers' | 'admin'>('home');
 
   // 根据URL hash处理页面路由
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
+      
       if (hash === 'privacy') {
         setCurrentPage('privacy');
       } else if (hash === 'careers') {
         setCurrentPage('careers');
+      } else if (hash.startsWith('admin')) {
+        setCurrentPage('admin');
       } else {
         setCurrentPage('home');
       }
@@ -69,6 +73,13 @@ const App: React.FC = () => {
       return;
     }
 
+    if (sectionId === 'admin') {
+      window.location.hash = 'admin';
+      setCurrentPage('admin');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     if (currentPage === 'home') {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -94,6 +105,10 @@ const App: React.FC = () => {
     setCurrentPage('privacy');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (currentPage === 'admin') {
+    return <AdminApp />;
+  }
 
   if (currentPage === 'privacy') {
     return (

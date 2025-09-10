@@ -223,15 +223,19 @@ admin.get('/admin/contacts', authMiddleware, async (c) => {
 });
 
 // 获取职位申请列表
-admin.get('/admin/career-applications', authMiddleware, async (c) => {
-  console.log('Getting career applications list');
+admin.get('/admin/career-applications', async (c) => {
+  console.log('Admin fetching career applications list');
   
   try {
-    const page = parseInt(c.req.query('page') || '1');
-    const pageSize = parseInt(c.req.query('pageSize') || '10');
-    const status = c.req.query('status');
-    const region = c.req.query('region');
+    const query = c.req.query();
+    const page = parseInt(query.page || '1');
+    const pageSize = parseInt(query.pageSize || '10');
+    const status = query.status;
+    const region = query.region;
+    
+    console.log('Career applications query params:', { page, pageSize, status, region });
 
+    // 构建查询条件
     const filter: any = {};
     if (status) {
       filter.status = status;
@@ -244,15 +248,17 @@ admin.get('/admin/career-applications', authMiddleware, async (c) => {
     
     // 获取总数
     const total = await collection.countDocuments(filter);
-    
+    console.log(`Found ${total} career applications matching filter`);
+
     // 获取分页数据
-    const skip = (page - 1) * pageSize;
     const applications = await collection
       .find(filter)
       .sort({ createdAt: -1 })
-      .skip(skip)
+      .skip((page - 1) * pageSize)
       .limit(pageSize)
       .toArray();
+
+    console.log(`Retrieved ${applications.length} career applications for page ${page}`);
 
     // 转换数据格式
     const formattedApplications = applications.map(app => ({
@@ -264,11 +270,12 @@ admin.get('/admin/career-applications', authMiddleware, async (c) => {
       notes: app.notes,
       region: app.region,
       resumeUrl: app.resumeUrl,
-      status: app.status || 'pending',
-      createdAt: app.createdAt
+      status: app.status,
+      createdAt: app.createdAt,
+      updatedAt: app.updatedAt
     }));
 
-    return c.json({
+    const response: ApiResponse = {
       success: true,
       data: {
         applications: formattedApplications,
@@ -276,14 +283,131 @@ admin.get('/admin/career-applications', authMiddleware, async (c) => {
         page,
         pageSize
       }
-    });
+    };
+
+    console.log('Career applications list retrieved successfully');
+    return c.json(response);
 
   } catch (error) {
-    console.error('Failed to get career applications:', error.message);
-    return c.json({
+    console.error('Failed to fetch career applications:', error.message);
+    
+    const response: ApiResponse = {
       success: false,
-      message: '获取申请列表失败'
-    }, 500);
+      message: '获取职位申请列表失败'
+    };
+    
+    return c.json(response, 500);
+  }
+});
+
+// 更新职位申请状态
+admin.put('/admin/career-applications/:id/status', async (c) => {
+  console.log('Admin updating career application status');
+  
+  try {
+    const id = c.req.param('id');
+    const { status } = await c.req.json();
+    
+    console.log('Updating career application status:', { id, status });
+
+    if (!mongo.ObjectId.isValid(id)) {
+      const response: ApiResponse = {
+        success: false,
+        message: '无效的申请ID'
+      };
+      return c.json(response, 400);
+    }
+
+    const collection = db.collection('407a43f7_career_applications');
+    
+    const updateResult = await collection.updateOne(
+      { _id: new mongo.ObjectId(id) },
+      { 
+        $set: { 
+          status: status,
+          updatedAt: new Date()
+        }
+      }
+    );
+
+    if (updateResult.matchedCount === 0) {
+      const response: ApiResponse = {
+        success: false,
+        message: '申请记录不存在'
+      };
+      return c.json(response, 404);
+    }
+
+    console.log('Career application status updated successfully');
+    
+    const response: ApiResponse = {
+      success: true,
+      message: '状态更新成功'
+    };
+
+    return c.json(response);
+
+  } catch (error) {
+    console.error('Failed to update career application status:', error.message);
+    
+    const response: ApiResponse = {
+      success: false,
+      message: '状态更新失败'
+    };
+    
+    return c.json(response, 500);
+  }
+});
+
+// 删除职位申请
+admin.delete('/admin/career-applications/:id', async (c) => {
+  console.log('Admin deleting career application');
+  
+  try {
+    const id = c.req.param('id');
+    
+    console.log('Deleting career application:', { id });
+
+    if (!mongo.ObjectId.isValid(id)) {
+      const response: ApiResponse = {
+        success: false,
+        message: '无效的申请ID'
+      };
+      return c.json(response, 400);
+    }
+
+    const collection = db.collection('407a43f7_career_applications');
+    
+    const deleteResult = await collection.deleteOne({
+      _id: new mongo.ObjectId(id)
+    });
+
+    if (deleteResult.deletedCount === 0) {
+      const response: ApiResponse = {
+        success: false,
+        message: '申请记录不存在'
+      };
+      return c.json(response, 404);
+    }
+
+    console.log('Career application deleted successfully');
+    
+    const response: ApiResponse = {
+      success: true,
+      message: '删除成功'
+    };
+
+    return c.json(response);
+
+  } catch (error) {
+    console.error('Failed to delete career application:', error.message);
+    
+    const response: ApiResponse = {
+      success: false,
+      message: '删除失败'
+    };
+    
+    return c.json(response, 500);
   }
 });
 

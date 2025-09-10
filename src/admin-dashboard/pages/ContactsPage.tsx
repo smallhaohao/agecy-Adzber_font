@@ -48,7 +48,7 @@ const ContactsPage: React.FC = () => {
         params.append('status', statusFilter);
       }
 
-      const response = await fetch(`${process.env.AIPA_API_DOMAIN}/api/admin/contacts?${params}`, {
+      const response = await fetch(`/api/admin/contacts?${params}`, {
         headers: {
           'Authorization': token || '',
         },

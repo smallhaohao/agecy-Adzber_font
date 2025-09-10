@@ -39,7 +39,7 @@ const CareerApplicationModal: React.FC<CareerApplicationModalProps> = ({ isOpen,
     setSubmitMessage('');
 
     try {
-      const response = await fetch(`${process.env.AIPA_API_DOMAIN}/api/career-applications`, {
+      const response = await fetch(`/api/career-applications`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

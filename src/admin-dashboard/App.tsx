@@ -10,13 +10,15 @@ import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
 const App: React.FC = () => {
+  console.log('AdminApp rendering'); // 添加调试日志
+  
   return (
     <AuthProvider>
       <Router>
         <div className="min-h-screen bg-gray-50">
           <Routes>
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/" element={
+            <Route path="/*" element={
               <ProtectedRoute>
                 <DashboardLayout />
               </ProtectedRoute>
@@ -26,7 +28,30 @@ const App: React.FC = () => {
               <Route path="careers" element={<CareersPage />} />
             </Route>
           </Routes>
-          <Toaster position="top-right" />
+          <Toaster 
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: '#363636',
+                color: '#fff',
+              },
+              success: {
+                duration: 3000,
+                iconTheme: {
+                  primary: '#4ade80',
+                  secondary: '#fff',
+                },
+              },
+              error: {
+                duration: 5000,
+                iconTheme: {
+                  primary: '#ef4444',
+                  secondary: '#fff',
+                },
+              },
+            }}
+          />
         </div>
       </Router>
     </AuthProvider>

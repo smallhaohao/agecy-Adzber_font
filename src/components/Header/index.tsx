@@ -4,14 +4,21 @@
  */
 
 import React, { useState } from 'react';
+import logoImage from '../../assets/images/logo.png';
 
 interface HeaderProps {
   onContactClick: () => void;
   onNavigateToSection?: (sectionId: string) => void;
   isPrivacyPage?: boolean;
+  currentPage?: 'home' | 'privacy' | 'careers' | 'admin';
 }
 
-const Header: React.FC<HeaderProps> = ({ onContactClick, onNavigateToSection, isPrivacyPage = false }) => {
+const Header: React.FC<HeaderProps> = ({ 
+  onContactClick, 
+  onNavigateToSection, 
+  isPrivacyPage = false,
+  currentPage = 'home'
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleNavigation = (sectionId: string) => {
@@ -26,6 +33,21 @@ const Header: React.FC<HeaderProps> = ({ onContactClick, onNavigateToSection, is
     setMobileMenuOpen(false);
   };
 
+  // 根据当前页面和目标区块确定按钮样式
+  const getNavButtonStyle = (targetSection: string) => {
+    const isActive = (currentPage === 'home' && targetSection === 'home') ||
+                    (currentPage === 'careers' && targetSection === 'careers') ||
+                    (currentPage === 'privacy' && targetSection === 'privacy');
+    
+    const baseClasses = "transition-colors whitespace-nowrap";
+    
+    if (isActive) {
+      return `${baseClasses} text-purple-600 font-medium hover:text-purple-700`;
+    } else {
+      return `${baseClasses} text-gray-700 hover:text-purple-600`;
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -34,11 +56,7 @@ const Header: React.FC<HeaderProps> = ({ onContactClick, onNavigateToSection, is
           {/* 左侧：Logo */}
           <div className="flex items-center space-x-3 flex-shrink-0">
             <div className="w-16 h-16 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl flex items-center justify-center shadow-sm">
-              <img 
-                src="https://cdn-tos-cn.bytedance.net/obj/aipa-tos/fd47af23-a1bc-41aa-838e-83195eeb9d02/LifecycleOwner 监听 (2).png" 
-                alt="Adzber Logo" 
-                className="w-14 h-14 object-contain"
-              />
+              <img src = {logoImage} alt = "Adzber" className = "w-14 h-14 object-contain" />
             </div>
             <div>
               <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 bg-clip-text text-transparent">
@@ -52,31 +70,31 @@ const Header: React.FC<HeaderProps> = ({ onContactClick, onNavigateToSection, is
           <nav className="hidden md:flex items-center space-x-8 flex-1 justify-center">
             <button 
               onClick={() => handleNavigation('home')}
-              className="text-purple-600 font-medium hover:text-purple-700 transition-colors whitespace-nowrap"
+              className={getNavButtonStyle('home')}
             >
               Home
             </button>
             <button 
               onClick={() => handleNavigation('about')}
-              className="text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap"
+              className={getNavButtonStyle('about')}
             >
               About Us
             </button>
             <button 
               onClick={() => handleNavigation('technology')}
-              className="text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap"
+              className={getNavButtonStyle('technology')}
             >
               Technology
             </button>
             <button 
               onClick={() => handleNavigation('specialities')}
-              className="text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap"
+              className={getNavButtonStyle('specialities')}
             >
               Our Specialities
             </button>
             <button 
               onClick={() => handleNavigation('careers')}
-              className="text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap"
+              className={getNavButtonStyle('careers')}
             >
               Careers
             </button>
@@ -111,31 +129,31 @@ const Header: React.FC<HeaderProps> = ({ onContactClick, onNavigateToSection, is
           <div className="px-4 py-4 space-y-4 bg-white border-t border-gray-200 mt-4">
             <button 
               onClick={() => handleNavigation('home')}
-              className="block w-full text-left text-purple-600 font-medium hover:text-purple-700 transition-colors"
+              className={`block w-full text-left ${getNavButtonStyle('home')}`}
             >
               Home
             </button>
             <button 
               onClick={() => handleNavigation('about')}
-              className="block w-full text-left text-gray-700 hover:text-purple-600 transition-colors"
+              className={`block w-full text-left ${getNavButtonStyle('about')}`}
             >
               About Us
             </button>
             <button 
               onClick={() => handleNavigation('technology')}
-              className="block w-full text-left text-gray-700 hover:text-purple-600 transition-colors"
+              className={`block w-full text-left ${getNavButtonStyle('technology')}`}
             >
               Technology
             </button>
             <button 
               onClick={() => handleNavigation('specialities')}
-              className="block w-full text-left text-gray-700 hover:text-purple-600 transition-colors"
+              className={`block w-full text-left ${getNavButtonStyle('specialities')}`}
             >
               Our Specialities
             </button>
             <button 
               onClick={() => handleNavigation('careers')}
-              className="block w-full text-left text-gray-700 hover:text-purple-600 transition-colors"
+              className={`block w-full text-left ${getNavButtonStyle('careers')}`}
             >
               Careers
             </button>

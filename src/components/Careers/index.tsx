@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import CareerApplicationModal from '../CareerApplicationModal';
+import { USAFlag, EuropeFlag, MiddleEastIcon } from '../FlagIcons';
 
 interface CareersProps {
   onNavigateToSection: (sectionId: string) => void;
@@ -25,17 +26,17 @@ const Careers: React.FC<CareersProps> = ({ onNavigateToSection, onContactClick }
   const regions = [
     {
       name: 'Middle East',
-      flag: '🌍',
+      flagComponent: <MiddleEastIcon className="w-20 h-16 mx-auto" />,
       originalName: 'Israel'
     },
     {
       name: 'USA',
-      flag: '🇺🇸',
+      flagComponent: <USAFlag className="w-20 h-16 mx-auto" />,
       originalName: 'USA'
     },
     {
       name: 'Europe',
-      flag: '🇪🇺',
+      flagComponent: <EuropeFlag className="w-20 h-16 mx-auto" />,
       originalName: 'Ukraine'
     }
   ];
@@ -61,9 +62,9 @@ const Careers: React.FC<CareersProps> = ({ onNavigateToSection, onContactClick }
             
             <div className="flex justify-center">
               <img 
-                src="https://cdn-tos-cn.bytedance.net/obj/aipa-tos/c27036b7-843e-4894-8eaf-eaa475978c3b/image.png"
+                src="https://picsum.photos/500/400?random=2"
                 alt="Career illustration"
-                className="max-w-full h-auto"
+                className="max-w-full h-auto rounded-2xl shadow-lg"
               />
             </div>
           </div>
@@ -81,7 +82,9 @@ const Careers: React.FC<CareersProps> = ({ onNavigateToSection, onContactClick }
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {regions.map((region, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 group">
-                <div className="text-6xl mb-6">{region.flag}</div>
+                <div className="mb-6 transform transition-transform duration-300 group-hover:scale-110">
+                  {region.flagComponent}
+                </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-8">{region.name}</h3>
                 <button
                   onClick={() => handleApplyClick(region.name)}
@@ -172,9 +175,9 @@ const Careers: React.FC<CareersProps> = ({ onNavigateToSection, onContactClick }
 
             <div className="flex justify-center">
               <img 
-                src="https://cdn-tos-cn.bytedance.net/obj/aipa-tos/2d40c0c6-931a-4d20-a597-999dbd5db085/image.png"
+                src="https://picsum.photos/600/500?random=3"
                 alt="Team collaboration illustration"
-                className="max-w-full h-auto"
+                className="max-w-full h-auto rounded-2xl shadow-lg"
               />
             </div>
           </div>

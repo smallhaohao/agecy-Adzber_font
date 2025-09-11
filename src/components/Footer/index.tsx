@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import logoImage from '../../assets/images/logo.png';
 
 interface FooterProps {
   onPrivacyClick?: () => void;
@@ -18,11 +19,9 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick }) => {
           <div className="bg-white p-6 rounded-2xl shadow-lg">
             <div className="flex items-center space-x-4">
               <div className="w-14 h-14 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl flex items-center justify-center">
-                <img 
-                  src="https://cdn-tos-cn.bytedance.net/obj/aipa-tos/fd47af23-a1bc-41aa-838e-83195eeb9d02/LifecycleOwner 监听 (2).png" 
-                  alt="Adzber Logo" 
-                  className="w-12 h-12 object-contain"
-                />
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl flex items-center justify-center shadow-sm">
+                  <img src = {logoImage} alt = "Adzber" className = "w-14 h-14 object-contain" />
+                </div>
               </div>
               <div>
                 <div className="text-xl font-bold bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 bg-clip-text text-transparent">

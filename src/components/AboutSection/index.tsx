@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import businessGrowthImage from '../../assets/images/business-growth.png';
 
 const AboutSection: React.FC = () => {
   return (
@@ -31,9 +32,9 @@ const AboutSection: React.FC = () => {
           <div className="w-1/2 pr-12">
             <div className="relative group">
               <img 
-                src="https://cdn-tos-cn.bytedance.net/obj/aipa-tos/e227b833-25ad-49c4-b39d-8ff4fbcbfd88/image.png" 
+                src={businessGrowthImage}
                 alt="Business growth and startup illustration"
-                className="w-full h-96 object-contain rounded-2xl transform transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-96 object-cover rounded-2xl transform transition-transform duration-300 group-hover:scale-105"
               />
               
               {/* 科技边框效果 */}

@@ -5,7 +5,11 @@
 
 import React from 'react';
 
-const TechnologySection: React.FC = () => {
+interface TechnologySectionProps {
+  onContactClick?: () => void;
+}
+
+const TechnologySection: React.FC<TechnologySectionProps> = ({ onContactClick }) => {
   const services = [
     {
       icon: (
@@ -38,6 +42,12 @@ const TechnologySection: React.FC = () => {
       stats: "92%"
     }
   ];
+
+  const handleContactClick = () => {
+    if (onContactClick) {
+      onContactClick();
+    }
+  };
 
   return (
     <section id="technology" className="py-20 bg-gradient-to-br from-purple-50 to-gray-50 relative overflow-hidden">
@@ -141,7 +151,10 @@ const TechnologySection: React.FC = () => {
               {/* 发光效果 */}
               <div className="absolute -inset-2 bg-gradient-to-r from-purple-600/30 to-cyan-600/30 blur-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
             </h3>
-            <button className="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 relative overflow-hidden group">
+            <button 
+              onClick={handleContactClick}
+              className="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 relative overflow-hidden group"
+            >
               <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <span className="relative">Contact Us</span>
             </button>

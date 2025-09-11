@@ -1,0 +1,15 @@
+services:
+
+  frontend:
+    build: .
+    container_name: nginx-frontend
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    networks:
+      - nev-network
+
+networks:
+  nev-network:
+    external: true

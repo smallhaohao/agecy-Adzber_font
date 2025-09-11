@@ -32,20 +32,22 @@ const HeroSection: React.FC = () => {
           <div className="w-1/2 pr-12">
             {/* Decorative Elements */}
             <div className="absolute top-32 left-20 w-24 h-24 bg-purple-400/20 rounded-full animate-pulse"></div>
-            
+
             <div className="relative">
               <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Maximizing Traffic for<br />
+                Maximizing Traffic for<br/>
                 Your Mobile App
               </h1>
-              
+
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Specializing in precise targeting and optimization, we deliver 
+                Specializing in precise targeting and optimization, we deliver
                 custom solutions to elevate your mobile app's user base.
               </p>
-              
-              <button className="bg-purple-600 text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-purple-700 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 relative overflow-hidden group">
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+
+              <button
+                  className="bg-purple-600 text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-purple-700 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 relative overflow-hidden group">
+                <span
+                    className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative">Discover More</span>
               </button>
             </div>

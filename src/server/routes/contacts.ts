@@ -55,7 +55,7 @@ contacts.post('/contacts', zValidator('json', contactSchema), async (c) => {
 
     const response: ApiResponse = {
       success: true,
-      message: '感谢您的联系，我们会尽快与您取得联系！'
+      message: 'Thank you for contacting us, we will get back to you as soon as possible!'
     };
 
     console.log('Contact form submission completed successfully');

@@ -1,12 +1,12 @@
 # 构建阶段：使用 Alpine 镜像并补充编译工具
-FROM node:18 AS builder
+FROM node:18-alpine AS builder
 
 # 安装 Alpine 环境下编译原生模块所需的工具
-#RUN apk add --no-cache \
-#  g++ \
-#  make \
-#  python3 \
-#  && rm -rf /var/cache/apk/*
+RUN apk add --no-cache \
+  g++ \
+  make \
+  python3 \
+  && rm -rf /var/cache/apk/*
 
 WORKDIR /app
 

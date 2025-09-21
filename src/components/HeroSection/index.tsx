@@ -28,7 +28,7 @@ const HeroSection: React.FC = () => {
       <div className="absolute bottom-1/3 right-0 w-40 h-px bg-gradient-to-l from-transparent via-cyan-400 to-transparent animate-pulse delay-500"></div>
       
       {/* 自定义轨道旋转动画样式 */}
-      <style jsx>{`
+      <style>{`
         @keyframes orbitRotate {
           from {
             transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
@@ -62,33 +62,10 @@ const HeroSection: React.FC = () => {
         .orbit-6 { --orbit-radius: 180px; animation: orbitRotateReverse 20s linear infinite; }
       `}</style>
       
-      <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
-        <div className="flex items-center justify-between">
-          {/* Left Content */}
-          <div className="w-1/2 pr-12">
-            {/* Decorative Elements */}
-            <div className="absolute top-32 left-20 w-24 h-24 bg-purple-400/20 rounded-full animate-pulse"></div>
-            
-            <div className="relative">
-              <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Maximizing Traffic for<br />
-                Your Mobile App
-              </h1>
-              
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Specializing in precise targeting and optimization, we deliver 
-                custom solutions to elevate your mobile app's user base.
-              </p>
-              
-              <button className="bg-purple-600 text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-purple-700 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 relative overflow-hidden group">
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                <span className="relative">Discover More</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Right Side - 3D Globe */}
-          <div className="w-1/2 relative flex justify-center items-center">
+      <div className="max-w-[105rem] mx-auto px-6 py-16 relative z-10">
+        <div className="flex flex-col items-center">
+          {/* Top Section - 3D Globe */}
+          <div className="w-full relative flex justify-center items-center mb-16">
             <div className="relative">
               {/* 3D地球仪组件 */}
               <Globe 
@@ -216,6 +193,28 @@ const HeroSection: React.FC = () => {
               {/* 新增：垂直数据流 */}
               <div className="absolute top-1/5 left-1/3 w-px h-10 bg-gradient-to-b from-transparent via-yellow-400/50 to-transparent animate-pulse delay-500"></div>
               <div className="absolute bottom-1/5 right-1/3 w-px h-14 bg-gradient-to-t from-transparent via-green-400/50 to-transparent animate-pulse delay-1200"></div>
+            </div>
+          </div>
+
+          {/* Bottom Section - Centered Content */}
+          <div className="w-full text-center">
+            {/* Decorative Elements */}
+            <div className="absolute top-32 left-20 w-24 h-24 bg-purple-400/20 rounded-full animate-pulse"></div>
+            
+            <div className="relative">
+              <h1 className="text-7xl font-bold text-gray-900 mb-8 leading-tight">
+                The World's Leading Programmatic<br />
+                Advertising Trading Platform
+              </h1>
+              
+              <p className="text-3xl text-gray-600 mb-10 leading-relaxed">
+                Leading the Global Advertising Sector Empowering Businesses for Transcendental Growth
+              </p>
+              
+              <button className="bg-purple-600 text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-purple-700 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 relative overflow-hidden group">
+                <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="relative">Discover More</span>
+              </button>
             </div>
           </div>
         </div>

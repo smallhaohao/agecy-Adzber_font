@@ -55,8 +55,8 @@ const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center justify-between w-full">
           {/* 左侧：Logo */}
           <div className="flex items-center space-x-3 flex-shrink-0">
-            <div className="w-16 h-16 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl flex items-center justify-center shadow-sm">
-              <img src = {logoImage} alt = "Adzber" className = "w-14 h-14 object-contain" />
+            <div className="w-16 h-16 from-purple-50 to-purple-100 rounded-xl flex items-center justify-center shadow-sm">
+              <img src = {logoImage} alt = "Adzber" className = "w-16 h-16 object-contain" />
             </div>
             <div>
               <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 bg-clip-text text-transparent">

@@ -67,16 +67,12 @@ const ContactSection: React.FC = () => {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-12 relative">
-          <div className="inline-block px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm font-medium mb-4 relative overflow-hidden">
-            <span className="relative z-10">Need help?</span>
+          <div className="inline-block px-6 py-3 bg-purple-100 text-purple-600 rounded-full text-4xl font-bold mb-4 relative overflow-hidden">
+            <span className="relative z-10">Don't hesitate to contact us for more<br />information</span>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 animate-pulse"></div>
-          </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 relative">
-            Don't hesitate to contact us for more<br />information
-            {/* 装饰性科技元素 */}
             <div className="absolute -top-4 -right-8 w-3 h-3 bg-cyan-400 rounded-full animate-ping"></div>
             <div className="absolute -bottom-2 -left-6 w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-500"></div>
-          </h2>
+          </div>
         </div>
 
         {/* Contact Form */}

@@ -13,8 +13,8 @@ const SpecialitiesSection: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       ),
-      title: "Smart & secure systems",
-      description: "Integrating intelligent features for efficiency with robust measures to ensure data protection and safety.",
+      title: "Precise Tag Targeting",
+      description: "For advertisers, Adzber ADX features core advantages including precise tag targeting, exclusive traffic resources,and transparent anti-fraud measures.",
       metric: "99.9%"
     },
     {
@@ -23,8 +23,8 @@ const SpecialitiesSection: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
         </svg>
       ),
-      title: "Certified",
-      description: "A trusted, recognized designation validating expertise, competence, or adherence to specific standards or criteria.",
+      title: "High-Efficiency Conversion",
+      description: "Significantly boosts advertising conversion rates,ensuring no waste of advertising budget.",
       metric: "ISO"
     },
     {
@@ -33,8 +33,8 @@ const SpecialitiesSection: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       ),
-      title: "Professional team",
-      description: "A skilled and cohesive group, a professional team excels through collaboration, expertise, and shared commitment to success.",
+      title: "Global Leadership",
+      description: "Has established a leading position in regions such as Latin America, Southeast Asia,the United States,Russia,India,and the Middle East.",
       metric: "50+"
     },
     {
@@ -74,16 +74,12 @@ const SpecialitiesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16 relative">
-          <div className="inline-block px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm font-medium mb-4 relative overflow-hidden">
-            <span className="relative z-10">Our Specialities</span>
+          <div className="inline-block px-6 py-3 bg-purple-100 text-purple-600 rounded-full text-4xl font-bold mb-4 relative overflow-hidden">
+            <span className="relative z-10">Core Advantage of Adzber ADX</span>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 animate-pulse"></div>
-          </div>
-          <h2 className="text-4xl font-bold text-gray-900 relative">
-            Why Choose Us:
-            {/* 装饰性科技元素 */}
             <div className="absolute -top-6 -right-12 w-4 h-4 bg-cyan-400 rounded-full animate-ping"></div>
             <div className="absolute -bottom-4 -left-8 w-3 h-3 bg-purple-500 rounded-full animate-pulse delay-700"></div>
-          </h2>
+          </div>
         </div>
 
         {/* Specialities Grid */}

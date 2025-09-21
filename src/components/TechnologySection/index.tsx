@@ -4,6 +4,9 @@
  */
 
 import React from 'react';
+import globalCoverageIcon from '../../assets/images/globalCoverageIcon.png';
+import algorithmDrivenIcon from '../../assets/images/algorithmDrivenIcon.png';
+import preciseTargetingIcon from '../../assets/images/preciseTargetingIcon.png';
 
 interface TechnologySectionProps {
   onContactClick?: () => void;
@@ -12,34 +15,19 @@ interface TechnologySectionProps {
 const TechnologySection: React.FC<TechnologySectionProps> = ({ onContactClick }) => {
   const services = [
     {
-      icon: (
-        <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: "User Experience Optimization",
-      description: "Enhancing engagement through user-focused design",
-      stats: "95%"
+      icon: globalCoverageIcon,
+      title: "Global Coverage",
+      description: "Adzber provides enterprises and advertisers with high-quality, targeted users, enabling them to achieve global growth seamlessly. AI"
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      ),
-      title: "Audience Engagement",
-      description: "Connecting your app with the right users",
-      stats: "87%"
+      icon: algorithmDrivenIcon,
+      title: "Algorithm-Driven",
+      description: "Based on robust data analytics capabilities and in-depth AI algorithm learning, we develop high-efficiency and professional promotion strategies."
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: "Conversion Rate Optimization",
-      description: "Turning visitors into loyal app users",
-      stats: "92%"
+      icon: preciseTargetingIcon,
+      title: "Precise Targeting & Matching",
+      description: "We deliver precise matching of users in target markets and have earned the trust of major clients such as Lazada, Ali Express, Kwai, and Shopee."
     }
   ];
 
@@ -71,12 +59,12 @@ const TechnologySection: React.FC<TechnologySectionProps> = ({ onContactClick })
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16 relative">
-          <div className="inline-block px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm font-medium mb-4 relative overflow-hidden">
+          <div className="inline-block px-6 py-3 bg-purple-100 text-purple-600 rounded-full text-4xl font-bold mb-4 relative overflow-hidden">
             <span className="relative z-10">What we offer</span>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 animate-pulse"></div>
           </div>
           <h2 className="text-4xl font-bold text-gray-900 relative">
-            Where technology meets<br />business.
+            One-Stop Mobile Marketing Solution
             {/* 装饰性数据点 */}
             <div className="absolute -top-4 -right-8 w-3 h-3 bg-cyan-400 rounded-full animate-ping"></div>
             <div className="absolute -bottom-2 -left-6 w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-500"></div>
@@ -94,35 +82,21 @@ const TechnologySection: React.FC<TechnologySectionProps> = ({ onContactClick })
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur"></div>
               
               <div className="relative z-10">
-                <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mb-6 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 relative">
-                  {service.icon}
-                  <div className="absolute inset-0 bg-cyan-400 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 animate-pulse"></div>
+                <div className="w-12 h-12 flex items-center justify-center mb-6 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                  <img 
+                    src={service.icon} 
+                    alt={`${service.title} icon`}
+                    className="w-12 h-12"
+                  />
                 </div>
                 
                 <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors duration-300">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p className="text-gray-600 leading-relaxed">
                   {service.description}
                 </p>
-                
-                {/* 成功率指示器 */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-sm text-gray-500">Success Rate</span>
-                  </div>
-                  <div className="text-2xl font-bold text-purple-600">{service.stats}</div>
-                </div>
-                
-                {/* 进度条 */}
-                <div className="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full transform transition-all duration-1000 group-hover:animate-pulse"
-                    style={{width: service.stats}}
-                  ></div>
-                </div>
               </div>
               
               {/* 浮动装饰元素 */}

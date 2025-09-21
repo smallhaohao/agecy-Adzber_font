@@ -64,58 +64,53 @@ const AboutSection: React.FC = () => {
             </div>
             
             <h2 className="text-4xl font-bold text-gray-900 mb-6 relative">
-              Expert team dedicated to boosting mobile app engagement.
+              About Adzber
               {/* 文字发光效果 */}
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
             </h2>
             
-            <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-              At Adzber, we specialize in targeted digital marketing strategies that effectively increase user acquisition for 
-              mobile apps. Our team of experts uses cutting-edge technology to ensure your app reaches its ideal audience, 
-              maximizing both reach and engagement.
-            </p>
 
             {/* Features */}
             <div className="space-y-8">
-              {/* Big Data Mastery */}
+              {/* Platform Foundation */}
+              <div className="flex items-start space-x-4 group">
+                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 relative">
+                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                  </svg>
+                  <div className="absolute inset-0 bg-purple-400 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 animate-pulse"></div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors duration-300">Platform Foundation</h3>
+                  <p className="text-gray-600">As the world's leading programmatic advertising trading platform, Adzber leverages platform aggregation capabilities and algorithmic recommendations as its foundation, with intelligent AI as the efficiency driver. It integrates front-end and back-end resources to deliver one-stop global promotion and monetization services for advertisers and developers.</p>
+                </div>
+              </div>
+
+              {/* Global Reach */}
+              <div className="flex items-start space-x-4 group">
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 relative">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div className="absolute inset-0 bg-blue-400 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 animate-pulse"></div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">Global Reach</h3>
+                  <p className="text-gray-600">Currently, Adzber's external developer traffic reaches 200 million users worldwide. It has established connections with thousands of advertisers and clients, spanning key sectors including finance, e-commerce, social media, and gaming.</p>
+                </div>
+              </div>
+
+              {/* Collaborative Growth */}
               <div className="flex items-start space-x-4 group">
                 <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 relative">
                   <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                   <div className="absolute inset-0 bg-green-400 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 animate-pulse"></div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300">Big Data Mastery</h3>
-                  <p className="text-gray-600">Leveraging analytics for targeted app growth</p>
-                </div>
-              </div>
-
-              {/* Scaling Excellence */}
-              <div className="flex items-start space-x-4 group">
-                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 relative">
-                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  <div className="absolute inset-0 bg-gray-400 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 animate-pulse"></div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors duration-300">Scaling Excellence</h3>
-                  <p className="text-gray-600">Tailored reach for maximum app exposure</p>
-                </div>
-              </div>
-
-              {/* Human Optimization */}
-              <div className="flex items-start space-x-4 group">
-                <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center flex-shrink-0 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 relative">
-                  <svg className="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                  <div className="absolute inset-0 bg-cyan-400 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 animate-pulse"></div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors duration-300">Human Optimization</h3>
-                  <p className="text-gray-600">Guiding your app's success with a personal touch</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300">Collaborative Growth</h3>
+                  <p className="text-gray-600">Adhering to the "Collaborative Growth" cooperation principle, we are committed to tailoring professional and high-efficiency digital marketing solutions for global partners. From supply-side resource integration to precise demand-side execution, we ensure your growth outcomes are clearly measurable.</p>
                 </div>
               </div>
             </div>

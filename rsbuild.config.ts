@@ -7,6 +7,9 @@ export default defineConfig({
     entry: {
       index: './src/entry.tsx',
     },
+    alias: {
+      '@': './src',
+    },
   },
   tools: {
     postcss: {

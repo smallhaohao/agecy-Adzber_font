@@ -18,9 +18,9 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick }) => {
         <div className="flex items-center justify-center mb-8">
           <div className="bg-white p-6 rounded-2xl shadow-lg">
             <div className="flex items-center space-x-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl flex items-center justify-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl flex items-center justify-center shadow-sm">
-                  <img src = {logoImage} alt = "Adzber" className = "w-14 h-14 object-contain" />
+              <div className="w-14 h-14  from-purple-50 to-purple-100 rounded-xl flex items-center justify-center">
+                <div className="w-16 h-16 from-purple-50 to-purple-100 rounded-xl flex items-center justify-center shadow-sm">
+                  <img src = {logoImage} alt = "Adzber" className = "w-16 h-16 object-contain" />
                 </div>
               </div>
               <div>
